@@ -1,8 +1,11 @@
 const Header = () => {
     return ( 
-        <header>
-            This is the header.
-        </header>
+        <div className="Header">
+            <div className="header-right">
+                <a href="" className="hr">ⓘ</a>
+            </div>
+        </div>
+
      );
 }
  

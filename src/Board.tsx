@@ -2,7 +2,20 @@ import Card from "./Card";
 
 const Board = () => {
     return ( 
-        <p>This is the board. <Card /></p>
+        <div className="Board">
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+        </div>
      );
 }
  
