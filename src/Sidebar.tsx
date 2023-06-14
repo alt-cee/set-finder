@@ -5,14 +5,14 @@ import Upload from "./Upload";
 const Sidebar = () => {
     return ( 
         <div className="sidebar">
-            <div className="data-display">
-                <SetDataDisplay />
-                <SetDataDisplay />
+            <div className="data">
+                <SetDataDisplay nSets={5}/>
+                <SetDataDisplay nSets={10}/>
             </div>
-            <div>
+            <div className="buttons">
                 <ShowSet />
             </div>
-            <div>
+            <div className="upload">
                 <Upload />
             </div>
         </div>

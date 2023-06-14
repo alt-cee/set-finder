@@ -1,8 +1,8 @@
 const Upload = () => {
     return ( 
-    <p>
-        Upload!
-    </p>
+    <div className="upload-box">
+        <h1>Upload!</h1>
+    </div>
      );
 }
  
