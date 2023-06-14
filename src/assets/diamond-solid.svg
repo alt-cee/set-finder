@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="56.547291mm"
+   height="29.946291mm"
+   viewBox="0 0 56.547291 29.946291"
+   version="1.1"
+   id="svg7541"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   sodipodi:docname="diamond-solid.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7543"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.70199214"
+     inkscape:cx="132.48012"
+     inkscape:cy="370.37452"
+     inkscape:window-width="1390"
+     inkscape:window-height="938"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs7538" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-70.098181,-20.455787)">
+    <path
+       sodipodi:type="star"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.695;stroke-dasharray:none;stroke-opacity:1"
+       id="path288-0"
+       inkscape:flatsided="true"
+       sodipodi:sides="4"
+       sodipodi:cx="40.087078"
+       sodipodi:cy="84.102081"
+       sodipodi:r1="17.356308"
+       sodipodi:r2="12.259509"
+       sodipodi:arg1="0.046478125"
+       sodipodi:arg2="0.83187629"
+       inkscape:rounded="0.05"
+       inkscape:randomized="0"
+       d="m 57.424643,84.90848 c -0.05702,1.22595 -16.918012,16.58819 -18.143963,16.53117 -1.225951,-0.057 -16.588188,-16.918016 -16.531167,-18.143967 0.05702,-1.225951 16.918012,-16.588187 18.143963,-16.531166 1.225951,0.05702 16.588188,16.918012 16.531167,18.143963 z"
+       transform="matrix(0,-0.82330165,1.5546326,0,-32.37601,68.43269)" />
+  </g>
+</svg>

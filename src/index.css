@@ -76,3 +76,12 @@ button {
 .data-display h1 {
   text-align: center;
 }
+
+svg {
+  width: 80px;
+}
+
+.card-image {
+  width: 80px;
+  margin: 0 auto;
+}
