@@ -4,11 +4,9 @@ import Upload from "./Upload";
 
 const Sidebar = () => {
     return ( 
-        <div className="Sidebar">
-            <div>
+        <div className="sidebar">
+            <div className="data-display">
                 <SetDataDisplay />
-            </div>
-            <div>
                 <SetDataDisplay />
             </div>
             <div>
