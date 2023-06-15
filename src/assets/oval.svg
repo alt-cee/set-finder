@@ -2,10 +2,11 @@
    width="120"
    height="60"
    viewBox="0 0 31.75 15.875"
+   fill="none"
+   stroke="#000000"
+   stroke-width="1"
    xmlns="http://www.w3.org/2000/svg">
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:1.01057;stroke-dasharray:none"
-       id="path8930"
        cx="15.808993"
        cy="7.9512677"
        rx="15.335987"

@@ -2,8 +2,10 @@
    width="120"
    height="60"
    viewBox="0 0 31.75 15.875"
+   fill="none"
+   stroke="#000000"
+   stroke-width="1"
    xmlns="http://www.w3.org/2000/svg">
     <path
-       style="fill:none;stroke:#000000;stroke-width:1;stroke-dasharray:none"
        d="M 15.808992,1.3096207 1.2160763,7.9512683 15.808992,14.592916 30.495454,7.9512683 Z" />
 </svg>
