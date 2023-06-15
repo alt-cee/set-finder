@@ -81,7 +81,11 @@ svg {
   width: 80px;
 }
 
-.card-image {
+svg {
+  fill: blue;
+}
+
+.card-face {
   width: 80px;
   margin: 0 auto;
 }
