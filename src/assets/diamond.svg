@@ -1,0 +1,18 @@
+<svg
+   width="120"
+   height="60"
+   viewBox="0 0 31.75 15.875"
+   fill="none"
+   stroke="currentColor"
+   stroke-width="1"
+   xmlns="http://www.w3.org/2000/svg">
+    <path
+       d="M 15.808992,1.3096207 1.2160763,7.9512683 15.808992,14.592916 30.495454,7.9512683 Z" />
+<pattern id="diagonalHatch" patternUnits="userSpaceOnUse" width="4" height="4">
+  <path d="M-1,1 l2,-2
+           M0,4 l4,-4
+           M3,5 l2,-2" 
+        stroke="currentColor"
+        stroke-width="1" />
+</pattern>
+</svg>

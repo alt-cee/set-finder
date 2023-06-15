@@ -1,0 +1,21 @@
+<svg
+   width="120"
+   height="60"
+   viewBox="0 0 31.75 15.875"
+   fill="none"
+   stroke="currentColor"
+   stroke-width="1"
+   xmlns="http://www.w3.org/2000/svg">
+    <ellipse
+       cx="15.808993"
+       cy="7.9512677"
+       rx="15.335987"
+       ry="7.2911744" />
+<pattern id="diagonalHatch" patternUnits="userSpaceOnUse" width="4" height="4">
+  <path d="M-1,1 l2,-2
+           M0,4 l4,-4
+           M3,5 l2,-2" 
+        stroke="currentColor"
+        stroke-width="1" />
+</pattern>
+</svg>

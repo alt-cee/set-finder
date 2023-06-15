@@ -1,6 +1,9 @@
-const SetDataDisplay = () => {
+const SetDataDisplay = (props) => {
+    const nSets = props.nSets;
     return ( 
-        <p>There are 2 Sets.</p>
+        <div className="data-display">
+            <h1>There are {nSets} sets</h1>
+        </div>
      );
 }
  

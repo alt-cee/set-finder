@@ -1,8 +1,9 @@
 const Header = () => {
     return ( 
-        <header>
-            This is the header.
-        </header>
+        <div className="header">
+            <h1>SET Finder</h1>
+        </div>
+
      );
 }
  
