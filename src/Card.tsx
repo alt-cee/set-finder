@@ -17,17 +17,18 @@ const Card = (props) => {
             this.count = count; // {1, 2, 3}
         }
     }
-    const card = new CardFace("purple", "url(#diagonalHatch)", Oval, 3)
+    const card = new CardFace("purple", "url(#diagonalHatch)", Oval, 2)
 
-    function Shape() {
+    function Shape({card}) {
         const CardShape=card.shape; 
         return <CardShape color={card.color} fill={card.fill}/>;
     }
-    
+
+    //TODO: improve the shape repetition
     return (
         <div className="card" style={{'top': top, 'left': left}}>
             <div className="card-face">
-                {[...Array(card.count)].map((value) => (Shape()))}
+                {[...Array(card.count)].map((value) => <Shape card={card} />)} 
             </div>
 
         </div>
