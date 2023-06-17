@@ -25,7 +25,12 @@ const Card = (props) => {
 
     function Shape({card}) {
         if (card.color == null || card.fill == null || card.shape == null || card.count == null) {
-            return <p>Empty!</p>
+            return (
+            <div>Color? 
+                <button onClick={function setColorRed(card) {card.color = "red"; setCard()}}>Red</button>
+                <button>Green</button>
+                <button>Purple</button>
+            </div>)
         }
         const CardShape=card.shape; 
         return <CardShape color={card.color} fill={card.fill} />
