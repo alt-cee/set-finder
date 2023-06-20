@@ -1,7 +1,7 @@
 import { ReactComponent as Diamond } from './assets/diamond.svg'
 import { ReactComponent as Oval } from './assets/oval.svg'
 import { ReactComponent as Tilde } from './assets/tilde.svg'
-import { ReactElement, useState } from 'react';
+import { ReactElement, useState, createElement } from 'react'
 
 class CardState {
   _shape: ReactElement | null
@@ -63,14 +63,26 @@ const CardFace = ({card}) => {
   } else if (card.count == null) {
     return (<p>count is empty</p>)
   } else {
-    return (<p>shape is filled</p>)
+    if (card.fill === 'solid') {
+      return (
+        Array(card.count).fill(0).map(() => createElement(card.shape, { color: card.color, fill: card.color }))
+      )
+    } else if (card.fill === 'stripe') {
+      return (
+        Array(card.count).fill(0).map(() => createElement(card.shape, { color: card.color, fill: 'url(#diagonalHatch)' }))
+      )
+    } else {
+      return (
+        Array(card.count).fill(0).map(() => createElement(card.shape, { color: card.color, fill: '#ffffff' }))
+      )
+    }
   }
 }
 
 const Card = (props) => {
   const top = props.position.top
   const left = props.position.left
-  const [cardState, setCardState] = useState(new CardState(Oval, "red", "stripe", 1))
+  const [cardState, setCardState] = useState(new CardState(Oval, 'red', 'stripe', 2))
 
   return (
     <div className='card' style={{ top, left }}>
