@@ -53,46 +53,32 @@ class CardState {
   }
 }
 
-// function Shape({card}) {
-//     if (card.color == null || card.fill == null || card.shape == null || card.count == null) {
-//         return (
-//         <div>Color? 
-//             <button onClick={function setColorRed(card) {card.color = "red"; setCard()}}>Red</button>
-//             <button>Green</button>
-//             <button>Purple</button>
-//         </div>)
-//     }
-//     const CardShape=card.shape; 
-//     return <CardShape color={card.color} fill={card.fill} />
-// }
-
-
 const CardFace = ({card}) => {
-    if (card === 'blank') {
-        return (<p>Card is blank</p>)
-    }
-    else if (card == 'partial') {
-        return (<p>Card is partially filled</p>)
-    }
-    return (<p>Card is filled</p>)
+  if (card.shape == null) {
+    return (<p>shape is empty</p>)
+  } else if (card.color == null) {
+    return (<p>color is empty</p>)
+  } else if (card.fill == null) {
+    return (<p>fill is empty</p>)
+  } else if (card.count == null) {
+    return (<p>count is empty</p>)
+  } else {
+    return (<p>shape is filled</p>)
+  }
 }
 
 const Card = (props) => {
-    const top = props.position.top;
-    const left = props.position.left;
-    // const [card, setCard] = useState(new CardFace(null, null, null, null));
+  const top = props.position.top
+  const left = props.position.left
+  const [cardState, setCardState] = useState(new CardState(Oval, "red", "stripe", 1))
 
-    const c = new CardState(null, null, null, null)
-    c.color = 'purplez'
-    return (
-        <div className="card" style={{'top': top, 'left': left}}>
-            <div className="card-face">
-                {console.log("color:", c.color)}
-                <CardFace card='partial'/>
-            </div>
-
-        </div>
-     );
+  return (
+    <div className='card' style={{ top, left }}>
+      <div className='card-face'>
+        <CardFace card={cardState} />
+      </div>
+    </div>
+  )
 }
- 
-export default Card;
+
+export default Card
