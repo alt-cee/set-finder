@@ -53,15 +53,43 @@ class CardState {
   }
 }
 
-const CardFace = ({card}) => {
+const CardFace = ({ card, handleCountClick, handleFillClick, handleColorClick, handleShapeClick}) => {
   if (card.shape == null) {
-    return (<p>shape is empty</p>)
+    return (
+      <div>
+        <h2>Shape?</h2>
+        <div><button onClick={() => handleShapeClick(Oval)}>Oval</button></div>
+        <div><button onClick={() => handleShapeClick(Diamond)}>Diamond</button></div>
+        <div><button onClick={() => handleShapeClick(Tilde)}>Tilde</button></div>
+      </div>
+    )
   } else if (card.color == null) {
-    return (<p>color is empty</p>)
+    return (
+      <div>
+        <h2>Color?</h2>
+        <div><button onClick={() => handleColorClick('red')}>Red</button></div>
+        <div><button onClick={() => handleColorClick('purple')}>Purple</button></div>
+        <div><button onClick={() => handleColorClick('green')}>Green</button></div>
+      </div>
+    )
   } else if (card.fill == null) {
-    return (<p>fill is empty</p>)
+    return (
+      <div>
+        <h2>Fill?</h2>
+        <div><button onClick={() => handleFillClick('blank')}>Blank</button></div>
+        <div><button onClick={() => handleFillClick('stripe')}>Stripe</button></div>
+        <div><button onClick={() => handleFillClick('solid')}>Solid</button></div>
+      </div>
+        )
   } else if (card.count == null) {
-    return (<p>count is empty</p>)
+    return (
+      <div>
+        <h2>Count?</h2>
+        <div><button onClick={() => handleCountClick(1)}>1</button></div>
+        <div><button onClick={() => handleCountClick(2)}>2</button></div>
+        <div><button onClick={() => handleCountClick(3)}>3</button></div>
+      </div>
+    )
   } else {
     if (card.fill === 'solid') {
       return (
@@ -69,8 +97,7 @@ const CardFace = ({card}) => {
       )
     } else if (card.fill === 'stripe') {
       return (
-        Array(card.count).fill(0).map(() => createElement(card.shape, { color: card.color, fill: 'url(#diagonalHatch)' }))
-      )
+        Array(card.count).fill(0).map(() => createElement(card.shape, { color: card.color, fill: 'url(#diagonalHatch)' })))
     } else {
       return (
         Array(card.count).fill(0).map(() => createElement(card.shape, { color: card.color, fill: '#ffffff' }))
@@ -82,12 +109,36 @@ const CardFace = ({card}) => {
 const Card = (props) => {
   const top = props.position.top
   const left = props.position.left
-  const [cardState, setCardState] = useState(new CardState(Oval, 'red', 'stripe', 2))
+  const [cardState, setCardState] = useState(new CardState(null, null, null, null))
+
+  const handleCountClick = (value) => {
+    const nextCardState = new CardState(cardState.shape, cardState.color, cardState.fill, cardState.count)
+    nextCardState.count = value
+    setCardState(nextCardState)
+  }
+
+  const handleFillClick = (value) => {
+    const nextCardState = new CardState(cardState.shape, cardState.color, cardState.fill, cardState.count)
+    nextCardState.fill = value
+    setCardState(nextCardState)
+  }
+
+  const handleColorClick = (value) => {
+    const nextCardState = new CardState(cardState.shape, cardState.color, cardState.fill, cardState.count)
+    nextCardState.color = value
+    setCardState(nextCardState)
+  }
+
+  const handleShapeClick = (value) => {
+    const nextCardState = new CardState(cardState.shape, cardState.color, cardState.fill, cardState.count)
+    nextCardState.shape = value
+    setCardState(nextCardState)
+  }
 
   return (
     <div className='card' style={{ top, left }}>
       <div className='card-face'>
-        <CardFace card={cardState} />
+        <CardFace card={cardState} handleCountClick={handleCountClick} handleFillClick={handleFillClick} handleColorClick={handleColorClick} handleShapeClick={handleShapeClick} />
       </div>
     </div>
   )
