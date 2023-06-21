@@ -15,17 +15,16 @@ const cardPositions = {
     12: {'top': '420px', 'left': '520px'}
 }
 
-const Board = ({ cards, onAddCard }) => {
+const Board = ({ cards, onAddCard, onInputClick }) => {
     // takes currentCards and passes the state to Card to render
     // passes down the onInput function that can be called by handleClick to update currentCards
     // renders all the cards
-    console.log(cards)
     return ( 
       <>
         <div className="board">
           {cards.map((card, index) => (
             <div className="card" style={cardPositions[index + 1]}>
-            <Card card={card}/>
+            <Card card={card} id={index} onInputClick={onInputClick}/>
             </div>
           ))}
         </div>

@@ -62,6 +62,12 @@ function App() {
   // currentCards: array of cardStates
   const [currentCards, setCurrentCards] = useState([new CardState(null, null, null, null)])
   // handleInput: update currentCards with new cardState
+  function handleInputClick (id, type, value) {
+    const newCardState = new CardState(currentCards[id].shape, currentCards[id].color, currentCards[id].fill, currentCards[id].count)
+    newCardState[type] = value
+    const newCards = currentCards.map((card, index) => {return (index === id ? newCardState : card)}) 
+    setCurrentCards(newCards)
+  }
   // onAddCard
   function handleAddCard() {
     const nextCards = [...currentCards.slice(), new CardState(null, null, null, null)]
@@ -71,7 +77,7 @@ function App() {
     <div className="App">
         <Header />
         <Sidebar />
-        <Board cards={currentCards} onAddCard={handleAddCard}/>
+        <Board cards={currentCards} onAddCard={handleAddCard} onInputClick={handleInputClick}/>
     </div>
   )
 }
