@@ -22,9 +22,9 @@ const Board = ({ cards, onAddCard, onInputClick }) => {
     return ( 
       <>
         <div className="board">
-          {cards.map((card, index) => (
-            <div className="card" style={cardPositions[index + 1]}>
-            <Card card={card} id={index} onInputClick={onInputClick}/>
+          {cards.map((card) => (
+            <div className="card" style={cardPositions[card.position + 1]}>
+            <Card card={card} onInputClick={onInputClick}/>
             </div>
           ))}
         </div>

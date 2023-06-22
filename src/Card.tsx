@@ -3,8 +3,8 @@ import { ReactComponent as Oval } from './assets/oval.svg'
 import { ReactComponent as Tilde } from './assets/tilde.svg'
 import { ReactElement, useState, createElement } from 'react'
 
-const Card = ({ card, id, onInputClick }) => {
-  const onInputClickId = (type, value) => onInputClick(id, type, value)
+const Card = ({ card, onInputClick }) => {
+  const onInputClickId = (type, value) => onInputClick(card.position, type, value)
   if (card.shape == null) {
     return (
       <div>
