@@ -1,18 +1,18 @@
 import Card from "./Card";
 
 const cardPositions = {
-    1: {'top': '20px', 'left': '20px'},
-    2: {'top': '20px', 'left': '185px'},
-    3: {'top': '20px', 'left': '350px'},
-    4: {'top': '20px', 'left': '520px'},
-    5: {'top': '220px', 'left': '20px'},
-    6: {'top': '220px', 'left': '185px'},
-    7: {'top': '220px', 'left': '350px'},
-    8: {'top': '220px', 'left': '520px'},
-    9: {'top': '420px', 'left': '20px'},
-    10: {'top': '420px', 'left': '185px'},
-    11: {'top': '420px', 'left': '350px'},
-    12: {'top': '420px', 'left': '520px'}
+    0: {'top': '20px', 'left': '20px'},
+    1: {'top': '20px', 'left': '185px'},
+    2: {'top': '20px', 'left': '350px'},
+    3: {'top': '20px', 'left': '520px'},
+    4: {'top': '220px', 'left': '20px'},
+    5: {'top': '220px', 'left': '185px'},
+    6: {'top': '220px', 'left': '350px'},
+    7: {'top': '220px', 'left': '520px'},
+    8: {'top': '420px', 'left': '20px'},
+    9: {'top': '420px', 'left': '185px'},
+    10: {'top': '420px', 'left': '350px'},
+    11: {'top': '420px', 'left': '520px'}
 }
 
 const Board = ({ cards, onAddCard, onInputClick }) => {
@@ -23,7 +23,7 @@ const Board = ({ cards, onAddCard, onInputClick }) => {
       <>
         <div className="board">
           {cards.map((card) => (
-            <div className="card" style={cardPositions[card.position + 1]}>
+            <div className="card" style={cardPositions[card.id]}>
             <Card card={card} onInputClick={onInputClick}/>
             </div>
           ))}

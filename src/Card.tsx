@@ -10,7 +10,7 @@ const shapeLookup = {
 }
 
 const Card = ({ card, onInputClick }) => {
-  const onInputClickId = (type, value) => onInputClick(card.position, type, value)
+  const onInputClickId = (type, value) => onInputClick(card.id, type, value)
   if (card.shape == null) {
     return (
       <div>

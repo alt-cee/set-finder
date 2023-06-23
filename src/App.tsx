@@ -6,27 +6,27 @@ import Board from './Board'
 import Card from './Card'
 
 class CardState {
-  _position: number  
+  _id: number  
   _shape: string | null
   _color: string | null
   _fill: string | null
   _count: number | null
 
   constructor (
-    position: number,
+    id: number,
     shape: string | null,
     color: string | null,
     fill: string | null,
     count: number | null) {
-    this._position = position
+    this._id = id
     this._shape = shape // {oval, diamond, tilde}
     this._color = color // {red, purple, green}
     this._fill = fill // {blank, stripe, solid}
     this._count = count // {1, 2, 3}
   }
 
-  get position (): number {
-    return this._position
+  get id (): number {
+    return this._id
   }
 
   get shape (): string | null {
@@ -73,11 +73,11 @@ function App() {
       setCurrentCards(nextCards)}
   }
 
-  function handleInputClick (position, type, value) {
-    const currentCardState = currentCards.find(card => card.position === position)
-    const newCardState = new CardState(currentCardState.position, currentCardState.shape, currentCardState.color, currentCardState.fill, currentCardState.count)
+  function handleInputClick (id, type, value) {
+    const currentCardState = currentCards.find(card => card.id === id)
+    const newCardState = new CardState(currentCardState.id, currentCardState.shape, currentCardState.color, currentCardState.fill, currentCardState.count)
     newCardState[type] = value
-    const newCards = currentCards.map((card) => card.position === position ? 
+    const newCards = currentCards.map((card) => card.id === id ? 
     newCardState : card ) 
     console.log(JSON.stringify(newCardState))
     setCurrentCards(newCards)
