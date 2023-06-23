@@ -3,15 +3,21 @@ import { ReactComponent as Oval } from './assets/oval.svg'
 import { ReactComponent as Tilde } from './assets/tilde.svg'
 import { ReactElement, useState, createElement } from 'react'
 
+const shapeLookup = {
+  'oval': Oval,
+  'diamond': Diamond,
+  'tilde': Tilde
+}
+
 const Card = ({ card, onInputClick }) => {
   const onInputClickId = (type, value) => onInputClick(card.position, type, value)
   if (card.shape == null) {
     return (
       <div>
         <h2>Shape?</h2>
-        <div><button onClick={() => onInputClickId('shape', Oval)}>Oval</button></div>
-        <div><button onClick={() => onInputClickId('shape', Diamond)}>Diamond</button></div>
-        <div><button onClick={() => onInputClickId('shape', Tilde)}>Tilde</button></div>
+        <div><button onClick={() => onInputClickId('shape', 'oval')}>Oval</button></div>
+        <div><button onClick={() => onInputClickId('shape', 'diamond')}>Diamond</button></div>
+        <div><button onClick={() => onInputClickId('shape', 'tilde')}>Tilde</button></div>
       </div>
     )
   } else if (card.color == null) {
@@ -44,14 +50,14 @@ const Card = ({ card, onInputClick }) => {
   } else {
     if (card.fill === 'solid') {
       return (
-        Array(card.count).fill(0).map(() => createElement(card.shape, { color: card.color, fill: card.color }))
+        Array(card.count).fill(0).map(() => createElement(shapeLookup[card.shape], { color: card.color, fill: card.color }))
       )
     } else if (card.fill === 'stripe') {
       return (
-        Array(card.count).fill(0).map(() => createElement(card.shape, { color: card.color, fill: 'url(#diagonalHatch)' })))
+        Array(card.count).fill(0).map(() => createElement(shapeLookup[card.shape], { color: card.color, fill: 'url(#diagonalHatch)' })))
     } else {
       return (
-        Array(card.count).fill(0).map(() => createElement(card.shape, { color: card.color, fill: '#ffffff' }))
+        Array(card.count).fill(0).map(() => createElement(shapeLookup[card.shape], { color: card.color, fill: '#ffffff' }))
       )
     }
   }

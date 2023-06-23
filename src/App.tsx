@@ -1,6 +1,3 @@
-import { ReactComponent as Diamond } from './assets/diamond.svg'
-import { ReactComponent as Oval } from './assets/oval.svg'
-import { ReactComponent as Tilde } from './assets/tilde.svg'
 import { ReactElement, useState, createElement, useEffect } from 'react'
 
 import Header from './Header'
@@ -10,14 +7,14 @@ import Card from './Card'
 
 class CardState {
   _position: number  
-  _shape: ReactElement | null
+  _shape: string | null
   _color: string | null
   _fill: string | null
   _count: number | null
 
   constructor (
     position: number,
-    shape: ReactElement | null,
+    shape: string | null,
     color: string | null,
     fill: string | null,
     count: number | null) {
@@ -32,11 +29,11 @@ class CardState {
     return this._position
   }
 
-  get shape (): ReactElement | null {
+  get shape (): string | null {
     return this._shape
   }
 
-  set shape (shape: ReactElement) {
+  set shape (shape: string) {
     this._shape = shape
   }
 
@@ -82,11 +79,10 @@ function App() {
     newCardState[type] = value
     const newCards = currentCards.map((card) => card.position === position ? 
     newCardState : card ) 
+    console.log(JSON.stringify(newCardState))
     setCurrentCards(newCards)
   }
 
-
-  
   return (
     <div className="App">
         <Header />
