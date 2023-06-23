@@ -2,12 +2,12 @@ import ShowSet from "./showSet";
 import SetDataDisplay from "./SetDataDisplay";
 import Upload from "./Upload";
 
-const Sidebar = () => {
+const Sidebar = ({ nSets }) => {
     return ( 
         <div className="sidebar">
             <div className="data">
-                <SetDataDisplay nSets={5}/>
-                <SetDataDisplay nSets={10}/>
+                <SetDataDisplay nSets={nSets} type='exists'/>
+                <SetDataDisplay nSets={nSets} type='count'/>
             </div>
             <div className="buttons">
                 <ShowSet />

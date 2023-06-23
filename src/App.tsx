@@ -64,6 +64,7 @@ class CardState {
 
 function App() {
   const [currentCards, setCurrentCards] = useState([new CardState(0, null, null, null, null)])
+  const [nSets, setNSets] = useState(null)
 
   function handleAddCard() {
     const nextCardIndex = currentCards.length
@@ -83,10 +84,20 @@ function App() {
     setCurrentCards(newCards)
   }
 
+  useEffect(() => {
+    if (currentCards.length > 3) {
+      fetch('http://localhost:8000/checkSets')
+        .then(response => {
+          return response.json()
+        })
+        .then(data => setNSets(data.length))
+    }
+  }, [currentCards])
+
   return (
     <div className="App">
         <Header />
-        <Sidebar />
+        <Sidebar nSets={nSets}/>
         <Board cards={currentCards} onAddCard={handleAddCard} onInputClick={handleInputClick}/>
     </div>
   )
