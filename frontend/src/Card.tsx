@@ -1,5 +1,6 @@
 import { CardState } from './App'
 import { InputClickFunction } from './Board'
+// I belive this could be fixed with a .d.ts file
 import { ReactComponent as Diamond} from './assets/diamond.svg'
 import { ReactComponent as Oval} from './assets/oval.svg'
 import { ReactComponent as Tilde} from './assets/tilde.svg'
