@@ -1,4 +1,9 @@
-const SetDataDisplay = ({ nSets, type }) => {
+type Props = {
+    nSets: number,
+    type: 'exists' | 'count'
+}
+
+const SetDataDisplay = ({ nSets, type }: Props) => {
     if (type === 'exists') {
         return (
             <div className="data-display">
