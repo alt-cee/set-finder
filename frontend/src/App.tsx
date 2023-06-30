@@ -9,9 +9,9 @@ type MapishCardState = {
   [Property in keyof CardState]: string | number | null
 }
 
-type InputValue = string | number | null
+export type InputValue = string | number | null
 
-class CardState {
+export class CardState {
   public id: number
   public shape: string | null
   public color: string | null
