@@ -62,5 +62,5 @@ const Card = ({ card, onInputClick }) => {
     }
   }
 }
- 
+
 export default Card

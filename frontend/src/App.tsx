@@ -6,7 +6,7 @@ import Board from './Board'
 import Card from './Card'
 
 class CardState {
-  _id: number  
+  _id: number
   _shape: string | null
   _color: string | null
   _fill: string | null
@@ -78,8 +78,8 @@ function App() {
     const currentCardState = currentCards.find(card => card.id === id)
     const newCardState = new CardState(currentCardState.id, currentCardState.shape, currentCardState.color, currentCardState.fill, currentCardState.count)
     newCardState[type] = value
-    const newCards = currentCards.map((card) => card.id === id ? 
-    newCardState : card ) 
+    const newCards = currentCards.map((card) => card.id === id ?
+    newCardState : card )
     console.log(JSON.stringify(newCardState))
     setCurrentCards(newCards)
   }

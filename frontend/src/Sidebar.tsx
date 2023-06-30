@@ -3,7 +3,7 @@ import SetDataDisplay from "./SetDataDisplay";
 import Upload from "./Upload";
 
 const Sidebar = ({ nSets }) => {
-    return ( 
+    return (
         <div className="sidebar">
             <div className="data">
                 <SetDataDisplay nSets={nSets} type='exists'/>
@@ -18,5 +18,5 @@ const Sidebar = ({ nSets }) => {
         </div>
      );
 }
- 
+
 export default Sidebar;

@@ -19,7 +19,7 @@ const Board = ({ cards, onAddCard, onInputClick }) => {
     // takes currentCards and passes the state to Card to render
     // passes down the onInput function that can be called by handleClick to update currentCards
     // renders all the cards
-    return ( 
+    return (
       <>
         <div className="board">
           {cards.map((card) => (
@@ -33,5 +33,5 @@ const Board = ({ cards, onAddCard, onInputClick }) => {
         </div>
       </>)
 }
- 
+
 export default Board;

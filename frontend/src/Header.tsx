@@ -1,10 +1,10 @@
 const Header = () => {
-    return ( 
+    return (
         <div className="header">
             <h1>SET Finder</h1>
         </div>
 
      );
 }
- 
+
 export default Header;
