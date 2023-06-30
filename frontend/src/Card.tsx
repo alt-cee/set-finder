@@ -1,16 +1,19 @@
-import { ReactComponent as Diamond } from './assets/diamond.svg'
-import { ReactComponent as Oval } from './assets/oval.svg'
-import { ReactComponent as Tilde } from './assets/tilde.svg'
-import { ReactElement, useState, createElement } from 'react'
+import { CardState } from './App'
+import { InputClickFunction } from './Board'
+import { ReactComponent as Diamond} from './assets/diamond.svg'
+import { ReactComponent as Oval} from './assets/oval.svg'
+import { ReactComponent as Tilde} from './assets/tilde.svg'
+import { FunctionComponent, createElement } from 'react'
 
-const shapeLookup = {
-  'oval': Oval,
-  'diamond': Diamond,
-  'tilde': Tilde
-}
+type CardImage = FunctionComponent<{ color: any; fill: any; }>
 
-const Card = ({ card, onInputClick }) => {
-  const onInputClickId = (type, value) => onInputClick(card.id, type, value)
+const shapeLookup = new Map<string, CardImage>()
+  .set('oval', Oval)
+  .set('diamond', Diamond)
+  .set('tilde', Tilde)
+
+const Card = ({ card, onInputClick }: { card: any, onInputClick: InputClickFunction}) => {
+  const onInputClickId = (type: keyof CardState, value: string | number ) => onInputClick(card.id, type, value)
   if (card.shape == null) {
     return (
       <div>
@@ -48,16 +51,22 @@ const Card = ({ card, onInputClick }) => {
       </div>
     )
   } else {
+    const shape = shapeLookup.get(card.shape)
+
+    if (shape === undefined) {
+      throw new Error('Card shape is undefined.')
+    }
+
     if (card.fill === 'solid') {
       return (
-        Array(card.count).fill(0).map(() => createElement(shapeLookup[card.shape], { color: card.color, fill: card.color }))
+        Array(card.count).fill(0).map(() => createElement(shape, { color: card.color, fill: card.color }))
       )
     } else if (card.fill === 'stripe') {
       return (
-        Array(card.count).fill(0).map(() => createElement(shapeLookup[card.shape], { color: card.color, fill: 'url(#diagonalHatch)' })))
+        Array(card.count).fill(0).map(() => createElement(shape, { color: card.color, fill: 'url(#diagonalHatch)' })))
     } else {
       return (
-        Array(card.count).fill(0).map(() => createElement(shapeLookup[card.shape], { color: card.color, fill: '#ffffff' }))
+        Array(card.count).fill(0).map(() => createElement(shape, { color: card.color, fill: '#ffffff' }))
       )
     }
   }
