@@ -86,11 +86,17 @@ function App() {
 
   useEffect(() => {
     if (currentCards.length > 3) {
-      fetch('http://localhost:8000/checkSets')
-        .then(response => {
-          return response.json()
-        })
-        .then(data => setNSets(data.length))
+      fetch('http://localhost:4000/api/checkSets', {
+        method: 'POST',
+        body: JSON.stringify(currentCards),
+        headers: {
+          'content-type': 'application/json'
+        }
+      })
+      .then(response => {
+        return response.json()
+      })
+      .then(data => setNSets(data.length))
     }
   }, [currentCards])
 
