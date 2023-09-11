@@ -1,16 +1,22 @@
-import { ReactElement, useState, createElement, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 import Header from './Header'
 import Sidebar from './Sidebar'
 import Board from './Board'
-import Card from './Card'
 
-class CardState {
-  _id: number  
-  _shape: string | null
-  _color: string | null
-  _fill: string | null
-  _count: number | null
+// https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#handbook-content
+type MapishCardState = {
+  [Property in keyof CardState]: string | number | null
+}
+
+export type InputValue = string | number | null
+
+export class CardState {
+  public id: number
+  public shape: string | null
+  public color: string | null
+  public fill: string | null
+  public count: number | null
 
   constructor (
     id: number,
@@ -18,47 +24,11 @@ class CardState {
     color: string | null,
     fill: string | null,
     count: number | null) {
-    this._id = id
-    this._shape = shape // {oval, diamond, tilde}
-    this._color = color // {red, purple, green}
-    this._fill = fill // {blank, stripe, solid}
-    this._count = count // {1, 2, 3}
-  }
-
-  get id (): number {
-    return this._id
-  }
-
-  get shape (): string | null {
-    return this._shape
-  }
-
-  set shape (shape: string) {
-    this._shape = shape
-  }
-
-  get color (): string | null {
-    return this._color
-  }
-
-  set color (color: string) {
-    this._color = color
-  }
-
-  get fill (): string | null {
-    return this._fill
-  }
-
-  set fill (fill: string) {
-    this._fill = fill
-  }
-
-  get count (): number | null {
-    return this._count
-  }
-
-  set count (count: number) {
-    this._count = count
+    this.id = id
+    this.shape = shape // {oval, diamond, tilde}
+    this.color = color // {red, purple, green}
+    this.fill = fill // {blank, stripe, solid}
+    this.count = count // {1, 2, 3}
   }
 }
 
@@ -74,12 +44,17 @@ function App() {
       setCurrentCards(nextCards)}
   }
 
-  function handleInputClick (id, type, value) {
+  function handleInputClick (id: CardState['id'], type: keyof CardState, value: InputValue) {
     const currentCardState = currentCards.find(card => card.id === id)
-    const newCardState = new CardState(currentCardState.id, currentCardState.shape, currentCardState.color, currentCardState.fill, currentCardState.count)
-    newCardState[type] = value
-    const newCards = currentCards.map((card) => card.id === id ? 
-    newCardState : card ) 
+
+    if (currentCardState === undefined) {
+      throw new Error('Unable to find card state')
+    }
+
+    const newCardState = new CardState(currentCardState?.id, currentCardState?.shape, currentCardState?.color, currentCardState?.fill, currentCardState?.count);
+    (newCardState as MapishCardState)[type] = value
+    const newCards = currentCards.map((card) => card.id === id ?
+    newCardState : card )
     console.log(JSON.stringify(newCardState))
     setCurrentCards(newCards)
   }

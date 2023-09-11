@@ -1,7 +1,7 @@
 const ShowSet = () => {
-    return ( 
+    return (
         <button>Show a Set</button>
      );
 }
- 
+
 export default ShowSet;
